@@ -27,6 +27,8 @@
 <body>
     <h1>Roshni Gagenapally builds a reversed queue</h1>
     <input id ="newDiv" type="text" >
+    <br>
+    <br>
 		<div class="flex-container" id="target">
 		  <div class="queue">row item 1</div>   
 		  <div class="queue">row item 2</div>  
@@ -40,7 +42,7 @@
         <button onclick="fetchItem()">Fetch</button>
 
         <button onclick="zap()">Zap values</button>
-        
+
         <button onclick="unique()">Unique</button>
 
 	
@@ -49,9 +51,9 @@
 <script>
 	function makeNewDiv(){
 		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
+		let element = document.createElement("div");
+		element.innerHTML = document.getElementById("newDiv").value;
+		element.setAttribute("class", "queue");
 
 		/* add it to the container */
 		let container = document.getElementById('target')
