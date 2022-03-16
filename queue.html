@@ -5,7 +5,7 @@
     <style>
     .flex-container {
       display: flex;  flex-direction:row;
-      background-color: red;
+      background-color: rgb(0, 255, 170);
   }
 
 .flex-container > div {  /*div children of the flex container*/
@@ -40,6 +40,9 @@
         <button onclick="fetchItem()">Fetch</button>
 
         <button onclick="zap()">Zap values</button>
+        
+        <button onclick="unique()">Unique</button>
+
 	
 	
 </body>
@@ -87,9 +90,16 @@
         array = document.getElementsByClassName("queue");
 
         console.log("array --"+array.length);
-
-
-
     }
+    function unique(){
+		let queueItems = document.getElementsByClassName("queue");
+		for(let i=0;i<queueItems.length;i++){
+			for(let j=i+1;j<queueItems.length;j++){
+				if(queueItems[i].innerHTML == queueItems[j].innerHTML){
+					queueItems[j].remove();
+				}
+			}
+		}
+	}
 </script>
 </html>	
