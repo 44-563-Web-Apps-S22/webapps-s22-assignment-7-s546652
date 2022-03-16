@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recation Timer Use</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <h2> Roshni Gagenapally reaction timer</h2>
+
+    <button type="button" class="btn btn-primary" onclick="startTime()"> Start Timer</button>
+    <button type="button" class="btn btn-primary" onclick="recordReact()"> React Now</button>
+
+    <p id="target">Your time</p>
+    <p id="countdown"> Count</p>
+
+    <script>
+        var myTime = undefined;
+        function buttonPress1() {
+
+            setTimeout(function () {
+                document.getElementById('target').style.color = "red"
+            }, 3000)
+        }
+
+        function buttonPress2() {
+            setTimeout(() => {
+                document.getElementById('target').style.color = "red"
+            }, 3000)
+        }
+
+        function recordReact() {
+            myTime = Date.now();
+            console.log(myTime);
+            return myTime;
+        }
+
+        function startTime() {
+            for (i = 0; i < 5; i++) {
+                setTimeout(function () {
+                    console.log("This message is shown after 3 seconds");
+                    document.getElementById("countdown").innerHTML = i;
+                }, (3 - i) * 1000)
+
+            }
+            setTimeout(function () {
+                    if(myTime == undefined){
+                        document.getElementById("target").innerHTML = "Too Slow";
+                    }
+                    else{
+                        buttonTime = Date.now();   
+                        document.getElementById("target").innerHTML = "Time was "+(buttonTime - myTime);
+
+                    }
+                },3000)
+            }
+    </script>
+
+</body>
+
+</html>

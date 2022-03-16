@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html> <head>
+    <title>Queue html</title>
+
+    <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+    <h1>Roshni Gagenapally builds a reversed queue</h1>
+    <input id ="newDiv" type="text" >
+		<div class="flex-container" id="target">
+		  <div class="queue">row item 1</div>   
+		  <div class="queue">row item 2</div>  
+		  <div class="queue">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+		<button onclick="makeNewDiv()">Add value</button>
+
+        <button onclick="fetchItem()">Fetch</button>
+
+        <button onclick="zap()">Zap values</button>
+	
+	
+</body>
+<script>
+	function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("div")
+		element.innerHTML = "an item after 3"
+		element.style.color = "orange"
+
+		/* add it to the container */
+		let container = document.getElementById('target')
+		container.insertBefore(element,container.firstChild);
+		
+	}
+    function fetchItem() {
+
+        queueItems = document.getElementsByClassName("queue");
+        if(queueItems.length > 0){
+            queueItems[queueItems.length-1].remove();
+        }
+    }
+    function zap(){
+        /*queueItems = document.getElementsByClassName("queue");
+        inputElement = document.getElementById("newDiv").value;
+        console.log("o/p --"+inputElement);
+        let i =0;
+        for (let x of queueItems) {
+            if(x.innerHTML == inputElement){
+                queueItems[i].remove()
+            }
+            i = i+1;
+        }*/
+
+        let queueItems = document.getElementsByClassName("queue");
+		input = document.getElementById("newDiv").value;
+		let i = 0;
+        console.log("length -"+input.length);
+		for (let queueItem of queueItems) {
+			i++;
+			if (queueItem.innerHTML == input) {
+				queueItems[i - 1].remove();
+			}
+		}
+        array = document.getElementsByClassName("queue");
+
+        console.log("array --"+array.length);
+
+
+
+    }
+</script>
+</html>	
