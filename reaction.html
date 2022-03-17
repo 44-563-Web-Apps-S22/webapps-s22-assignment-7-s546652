@@ -42,6 +42,7 @@
             return myTime;
         }
 
+        let value = Math.floor(Math.random() * 9) + 2;
         function startTime() {
             for (i = 0; i < 5; i++) {
                 setTimeout(function () {
@@ -49,7 +50,7 @@
                     document.getElementById("countdown").innerHTML = "count "+ i;
                 }, (3 - i) * 1000)
 
-            }
+            }          
             setTimeout(function () {
                     if(myTime == undefined){
                         document.getElementById("target").innerHTML = "Too Slow";
